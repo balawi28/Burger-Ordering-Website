@@ -1,0 +1,15 @@
+.Burger {
+  display: flex;
+  flex-direction: column-reverse;
+  width: 100%;
+  margin-left: 2%;
+}
+
+/*
+.Burger:hover > * {
+  margin-top: -50%;
+  transform: translateY(180%);
+  transition: all 1s ease-out;
+  height: max-content;
+}
+*/

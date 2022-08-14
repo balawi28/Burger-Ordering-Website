@@ -1,25 +1,30 @@
-import logo from './logo.svg';
+import { React, useLayoutEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import './App.css';
+import Burger from './components/Burger/Burger';
+import Total from './components/Total/Total';
+import { fetchPrices } from './features/price';
 
-function App() {
+export default function App() {
+  const dispatch = useDispatch();
+
+  useLayoutEffect(() => {
+    dispatch(fetchPrices());
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <div className='App-Container'>
+        <div className='App-Title'>
+          <h1>Burger Ordering Application</h1>
+        </div>
+        <div className='App-Burger'>
+          <Burger />
+        </div>
+        <div className='App-Total'>
+          <Total />
+        </div>
+      </div>
     </div>
   );
 }
-
-export default App;
