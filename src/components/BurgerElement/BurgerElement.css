@@ -1,9 +1,10 @@
 .BurgerElement {
   display: grid;
   grid-template-areas: 'remove text image';
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: min-content minmax(max-content, 1fr) min-content;
+  grid-template-rows: min-content;
   align-items: center;
-  min-width: 100%;
+  min-height: 100%;
 }
 
 .BurgerElement-Image {
@@ -16,18 +17,16 @@
 .BurgerElement-Text {
   text-align: left;
   grid-area: text;
-  margin-left: -60%;
-  min-width: 100px;
   border-bottom: 1px solid #666;
+  border-image: linear-gradient(90deg, #aaa, #fff0) 12;
 }
 
 .BurgerElement-Remove {
   user-select: none;
   -webkit-user-drag: none;
-  margin-left: 13px;
+  margin-right: 13px;
   margin-top: 7px;
-  width: 27px;
-  max-width: 27;
+  min-width: 27px;
+  max-width: 27px;
   grid-area: remove;
-  cursor: pointer;
 }

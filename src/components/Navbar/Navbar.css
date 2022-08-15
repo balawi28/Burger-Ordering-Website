@@ -1,0 +1,7 @@
+.Navbar {
+  display: flex;
+}
+
+.Navbar-Logo {
+  min-width: 330px;
+}

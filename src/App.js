@@ -1,28 +1,31 @@
-import { React, useLayoutEffect } from 'react';
+import { React } from 'react';
 import { useDispatch } from 'react-redux';
 import './App.css';
 import Burger from './components/Burger/Burger';
-import Total from './components/Total/Total';
+import ElementAdder from './components/ElementsAdder/ElementAdder';
+import Navbar from './components/Navbar/Navbar';
+import Orders from './components/Orders/Orders';
 import { fetchPrices } from './features/price';
 
 export default function App() {
   const dispatch = useDispatch();
-
-  useLayoutEffect(() => {
-    dispatch(fetchPrices());
-  }, []);
+  dispatch(fetchPrices());
 
   return (
     <div className='App'>
       <div className='App-Container'>
-        <div className='App-Title'>
-          <h1>Burger Ordering Application</h1>
+        <div className='App-Navbar'>
+          <Navbar />
         </div>
         <div className='App-Burger'>
           <Burger />
         </div>
-        <div className='App-Total'>
-          <Total />
+
+        <div className='App-ElementAdder'>
+          <ElementAdder />
+        </div>
+        <div className='App-Orders'>
+          <Orders />
         </div>
       </div>
     </div>

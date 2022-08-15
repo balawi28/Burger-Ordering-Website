@@ -9,7 +9,7 @@ export const burgerSlice = createSlice({
   initialState,
   reducers: {
     addElement: (state, action) => {
-      state.value = [...state.value, action.payload];
+      state.elements = [...state.elements, action.payload];
     },
   },
 });

@@ -1,0 +1,39 @@
+.Orders {
+  color: white;
+  width: 100%;
+  table-layout: fixed;
+  overflow-wrap: break-word;
+}
+.Orders thead tr {
+  background-color: #4e2ecf;
+}
+
+th,
+td {
+  padding: 10px;
+  text-align: center;
+}
+
+.Orders thead tr :first-child {
+  border-top-left-radius: 15px;
+}
+
+.Orders thead tr :last-child {
+  border-top-right-radius: 15px;
+}
+
+.Orders tbody {
+  background-color: #141432;
+}
+
+.Orders tbody tr :last-child {
+  background-color: #fe4141;
+}
+
+.Orders tbody :last-child :first-child {
+  border-bottom-left-radius: 15px;
+}
+
+.Orders tbody :last-child :last-child {
+  border-bottom-right-radius: 15px;
+}

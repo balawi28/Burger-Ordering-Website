@@ -1,34 +1,51 @@
-import { useSelector } from 'react-redux';
+// import { useDispatch, useSelector } from 'react-redux';
 import BurgerBreadBottom from '../../icons/burger-bread-bottom.svg';
 import BurgerBreadTop from '../../icons/burger-bread-top.svg';
+import BurgerMeatBeef from '../../icons/burger-meat-beef.svg';
 import BurgerElement from '../BurgerElement/BurgerElement';
+import Total from '../Total/Total';
 import './Burger.css';
 
 export default function Burger() {
-  const price = useSelector((state) => state.price);
-  const burger = useSelector((state) => state.burger);
+  // const price = useSelector((state) => state.price);
+  // const burger = useSelector((state) => state.burger);
+
+  // const dispatch = useDispatch();
+  // dispatch(addElement({ name: 'mushroom' }));
 
   return (
     <div className='Burger'>
+      <div className='Burger-Total'>
+        <Total />
+      </div>
+
       <BurgerElement
         image={BurgerBreadBottom}
         text='Bread: Base Price'
-        removable={true}
-      ></BurgerElement>
+        removable={false}
+      />
 
-      {/* {burger.map((element) => (
-        <BurgerElement
-          image={BurgerBreadTop}
-          text='Bread: Base Price'
-          removable={true}
-        ></BurgerElement>
-      ))} */}
+      {/* <p>{burger.length}</p> */}
+      {/* {burger.length &&
+        burger.map((element) => (
+          <BurgerElement
+            image={BurgerBreadTop}
+            text={element.name}
+            removable={true}
+          />
+        ))} */}
+
+      <BurgerElement
+        image={BurgerMeatBeef}
+        text='Beef: Base Price'
+        removable={false}
+      />
 
       <BurgerElement
         image={BurgerBreadTop}
         text='Bread: Base Price'
-        removable={true}
-      ></BurgerElement>
+        removable={false}
+      />
     </div>
   );
 }
@@ -42,11 +59,7 @@ export default function Burger() {
         removable={true}
       ></BurgerElement>
 
-      <BurgerElement
-        image={BurgerMeatBeef}
-        text='Beef: Base Price'
-        removable={true}
-      ></BurgerElement>
+
 
       <BurgerElement
         image={BurgerCheese}
