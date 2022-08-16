@@ -26,7 +26,7 @@ td {
   background-color: #141432;
 }
 
-.Orders tbody tr :last-child :only-child {
+.Orders tbody tr > :last-child {
   background-color: #fe4141;
   cursor: pointer;
 }
