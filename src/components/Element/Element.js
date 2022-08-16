@@ -8,16 +8,17 @@ export default function Element({ image, name, price, enabled }) {
   let priceText = price ? price + '₪' : 'N/A';
 
   function addHandler() {
-    dispatch(
-      addElement({
-        text: name + ': ' + priceText,
-        price: price,
-        image: image,
-        removable: true,
-        name: name,
-        key: name,
-      })
-    );
+    if (enabled)
+      dispatch(
+        addElement({
+          text: name + ': ' + priceText,
+          price: price,
+          image: image,
+          removable: true,
+          name: name,
+          key: name,
+        })
+      );
   }
 
   return (
@@ -28,7 +29,10 @@ export default function Element({ image, name, price, enabled }) {
       <div
         className='Element-Add'
         onClick={addHandler}
-        style={{ backgroundColor: enabled ? '#22850e' : '#444' }}
+        style={{
+          backgroundColor: enabled ? '#22850e' : '#444',
+          cursor: enabled ? 'pointer' : 'default',
+        }}
       >
         +
       </div>

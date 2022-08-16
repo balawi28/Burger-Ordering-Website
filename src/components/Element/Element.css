@@ -55,7 +55,6 @@
   width: 35px;
   height: 32px;
   border-radius: 0px 0px 15px 0px;
-  background-color: #22850e;
   right: 0;
   bottom: 0;
   cursor: pointer;
@@ -63,5 +62,5 @@
 }
 
 .Element-Add:hover {
-  background-color: #286800;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4) 0 0) !important;
 }

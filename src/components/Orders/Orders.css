@@ -26,8 +26,9 @@ td {
   background-color: #141432;
 }
 
-.Orders tbody tr :last-child {
+.Orders tbody tr :last-child :only-child {
   background-color: #fe4141;
+  cursor: pointer;
 }
 
 .Orders tbody :last-child :first-child {
@@ -36,4 +37,13 @@ td {
 
 .Orders tbody :last-child :last-child {
   border-bottom-right-radius: 15px;
+}
+
+.Orders-Trash {
+  fill: white;
+  max-width: 30px;
+}
+
+.Orders > * > * > *:hover {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4) 0 0) !important;
 }
