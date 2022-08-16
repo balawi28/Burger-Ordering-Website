@@ -1,4 +1,4 @@
-// import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import BurgerBreadBottom from '../../icons/burger-bread-bottom.svg';
 import BurgerBreadTop from '../../icons/burger-bread-top.svg';
 import BurgerMeatBeef from '../../icons/burger-meat-beef.svg';
@@ -7,11 +7,7 @@ import Total from '../Total/Total';
 import './Burger.css';
 
 export default function Burger() {
-  // const price = useSelector((state) => state.price);
-  // const burger = useSelector((state) => state.burger);
-
-  // const dispatch = useDispatch();
-  // dispatch(addElement({ name: 'mushroom' }));
+  const burger = useSelector((state) => state.burger);
 
   return (
     <div className='Burger'>
@@ -25,15 +21,15 @@ export default function Burger() {
         removable={false}
       />
 
-      {/* <p>{burger.length}</p> */}
-      {/* {burger.length &&
-        burger.map((element) => (
-          <BurgerElement
-            image={BurgerBreadTop}
-            text={element.name}
-            removable={true}
-          />
-        ))} */}
+      {burger.elements.map((element) => (
+        <BurgerElement
+          text={element.text}
+          image={element.image}
+          removable={element.removable}
+          name={element.name}
+          key={element.key}
+        />
+      ))}
 
       <BurgerElement
         image={BurgerMeatBeef}

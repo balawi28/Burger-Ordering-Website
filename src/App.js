@@ -1,4 +1,4 @@
-import { React } from 'react';
+import { React, useLayoutEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import './App.css';
 import Burger from './components/Burger/Burger';
@@ -9,7 +9,9 @@ import { fetchPrices } from './features/price';
 
 export default function App() {
   const dispatch = useDispatch();
-  dispatch(fetchPrices());
+  useLayoutEffect(() => {
+    dispatch(fetchPrices());
+  }, [dispatch]);
 
   return (
     <div className='App'>

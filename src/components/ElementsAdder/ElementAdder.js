@@ -1,22 +1,42 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import BurgerCheese from '../../icons/burger-cheese.svg';
 import BurgerLeaf from '../../icons/burger-leaf.svg';
 import BurgerLettuce from '../../icons/burger-lettuce.svg';
 import BurgerMushroom from '../../icons/burger-mushroom.svg';
 import BurgerOnion from '../../icons/burger-onion.svg';
 import BurgerTomato from '../../icons/burger-tomato.svg';
-
 import Element from '../Element/Element';
 import './ElementAdder.css';
 export default function ElementAdder() {
+  const price = useSelector((state) => state.price.prices);
+  const burgerElements = useSelector((state) => state.burger.elements);
+
+  const { cheese, leaf, lettuce, mushroom, onion, tomato } = price;
+
+  let ingredients = [
+    { image: BurgerCheese, name: 'Cheese', price: cheese },
+    { image: BurgerLeaf, name: 'Leaf', price: leaf },
+    { image: BurgerLettuce, name: 'Lettuce', price: lettuce },
+    { image: BurgerMushroom, name: 'Mushroom', price: mushroom },
+    { image: BurgerOnion, name: 'Onion', price: onion },
+    { image: BurgerTomato, name: 'Tomato', price: tomato },
+  ];
+
   return (
     <div className='ElementAdder'>
-      <Element image={BurgerCheese} text='Cheese' price={6} />
-      <Element image={BurgerLeaf} text='Leaf' price={1} />
-      <Element image={BurgerLettuce} text='Lettuce' price={22} />
-      <Element image={BurgerMushroom} text='Mushroom' price={22} />
-      <Element image={BurgerOnion} text='Onion' price={22} />
-      <Element image={BurgerTomato} text='Tomato' price={22} />
+      {ingredients.map((ingredient) => (
+        <Element
+          image={ingredient.image}
+          name={ingredient.name}
+          key={ingredient.name}
+          price={ingredient.price}
+          enabled={
+            true &&
+            !burgerElements.find((element) => element.name === ingredient.name)
+          }
+        />
+      ))}
     </div>
   );
 }
