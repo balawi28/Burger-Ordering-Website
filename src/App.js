@@ -29,6 +29,10 @@ export default function App() {
         <div className='App-Orders'>
           <Orders />
         </div>
+
+        {/* <footer className='App-Footer'>
+          <Footer />
+        </footer> */}
       </div>
     </div>
   );

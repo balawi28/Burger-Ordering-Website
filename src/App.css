@@ -28,12 +28,20 @@ body {
   grid-template-areas:
     'navbar navbar'
     'burger add'
-    'burger  add'
+    'burger add'
     'orders orders';
   justify-items: center;
   align-content: start;
   gap: 30px;
   max-width: 1000px;
+}
+
+@media only screen and (max-width: 680px) {
+  .App-Container {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+  }
 }
 
 .App-AddElement .App-Burger .App-Navbar {
@@ -44,6 +52,7 @@ body {
 
 .App-ElementAdder {
   grid-area: add;
+  order: -1;
 }
 
 .App-Burger {
@@ -53,8 +62,13 @@ body {
 
 .App-Navbar {
   grid-area: navbar;
+  order: -2;
 }
 
 .App-Orders {
   grid-area: orders;
+}
+
+.App-Footer {
+  grid-area: footer;
 }

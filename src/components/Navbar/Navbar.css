@@ -1,7 +1,8 @@
 .Navbar {
   display: flex;
+  max-height: 47px;
 }
 
 .Navbar-Logo {
-  min-width: 330px;
+  min-width: 310px;
 }
