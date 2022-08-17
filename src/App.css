@@ -10,15 +10,26 @@
 
 html,
 body {
+  width: auto !important;
+  overflow-x: hidden !important;
   background: #1d1d42;
+  /* background-image: linear-gradient(-45deg, #28285a, #1c1c3f); */
   color: white;
 }
 
 .App {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 20px 40px;
+}
+
+.App::before {
+  opacity: 0.6;
+
+  background-image: url('./images/burgerWithBackground.jpg');
+
+  background-size: 100%;
 }
 
 .App-Container {
@@ -26,14 +37,15 @@ body {
   grid-template-columns: 1fr 1fr;
   grid-template-rows: min-content max-content min-content;
   grid-template-areas:
-    'navbar navbar'
     'burger add'
     'burger add'
-    'orders orders';
+    'orders orders'
+    'footer footer';
   justify-items: center;
   align-content: start;
   gap: 30px;
-  max-width: 1000px;
+  max-width: 1100px;
+  padding: 0px 30px;
 }
 
 @media only screen and (max-width: 680px) {
@@ -41,6 +53,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-items: center;
+    padding: 0px 20px;
   }
 }
 
@@ -60,15 +73,11 @@ body {
   grid-area: burger;
 }
 
-.App-Navbar {
-  grid-area: navbar;
-  order: -2;
-}
-
 .App-Orders {
   grid-area: orders;
 }
 
 .App-Footer {
-  grid-area: footer;
+  margin-top: 65px;
+  width: 100%;
 }

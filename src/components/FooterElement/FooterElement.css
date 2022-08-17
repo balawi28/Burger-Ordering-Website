@@ -1,10 +1,35 @@
 .FooterElement {
   display: flex;
+  align-items: flex-start;
+
+  gap: 5px;
+}
+
+.FooterElement-Container {
+  display: flex;
   flex-direction: column;
+  min-width: max-content;
+  gap: 5px;
+}
+
+.FooterElement-Container :first-child {
+  margin-bottom: 8px;
+}
+
+.FooterElement-Title {
+  white-space: nowrap;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.FooterElement pre {
+  font-size: 0.78rem;
+  font-weight: 400;
 }
 
 .FooterElement-Icon {
-  width: 60px;
-  height: 60px;
-  fill: #888;
+  min-height: 17px;
+  min-width: 22px;
+  margin-top: 4px;
+  fill: white;
 }

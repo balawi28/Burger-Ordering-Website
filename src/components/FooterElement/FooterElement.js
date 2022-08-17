@@ -1,12 +1,15 @@
 import React from 'react';
-import { ReactComponent as Icon } from '../../icons/call.svg';
 import './FooterElement.css';
 
-export default function FooterElement({ title }) {
+export default function FooterElement({ title, data, Icon }) {
   return (
     <div className='FooterElement'>
-      <Icon className='FooterElement-Icon' />
-      <h3>{title}</h3>
+      <div className='FooterElement-Container'>
+        <h3 className='FooterElement-Title'>{title.toUpperCase()}</h3>
+        {data.map((string) => (
+          <pre key={string}>{string}</pre>
+        ))}
+      </div>
     </div>
   );
 }

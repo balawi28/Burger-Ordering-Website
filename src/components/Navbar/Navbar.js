@@ -6,6 +6,8 @@ export default function Navbar() {
   return (
     <div className='Navbar'>
       <img className='Navbar-Logo' src={Logo} alt='Logo' />
+      <h2>Home</h2>
+      <h2>Orders</h2>
     </div>
   );
 }

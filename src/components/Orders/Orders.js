@@ -17,20 +17,29 @@ export default function Orders() {
         </tr>
       </thead>
       <tbody>
-        {orders.map(({ id, elements, status, price }) => (
-          <tr key={id}>
-            <td style={{ backgroundColor: status ? '' : '#444' }}>{id}</td>
-            <td style={{ backgroundColor: status ? '' : '#444' }}>
-              {price + '₪'}
-            </td>
-            <td style={{ backgroundColor: status ? '' : '#444' }}>
-              {status ? 'In Progress' : 'Canceled'}
-            </td>
-            <td onClick={() => dispatch(cancelOrder(id))}>
-              <Trash className='Orders-Trash' />
-            </td>
+        {orders.length ? (
+          orders.map(({ id, elements, status, price }) => (
+            <tr key={id}>
+              <td style={{ backgroundColor: status ? '' : '#444' }}>{id}</td>
+              <td style={{ backgroundColor: status ? '' : '#444' }}>
+                {price + '₪'}
+              </td>
+              <td style={{ backgroundColor: status ? '' : '#444' }}>
+                {status ? 'In Progress' : 'Canceled'}
+              </td>
+              <td onClick={() => dispatch(cancelOrder(id))}>
+                <Trash className='Orders-Trash' />
+              </td>
+            </tr>
+          ))
+        ) : (
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>‌</td>
           </tr>
-        ))}
+        )}
       </tbody>
     </table>
   );
