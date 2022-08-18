@@ -1,0 +1,51 @@
+.Home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Home::before {
+  opacity: 0.6;
+  background-image: url('../../images/burgerWithBackground.jpg');
+  background-size: 100%;
+}
+
+.Home-Container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: min-content max-content min-content;
+  grid-template-areas: 'burger add';
+  justify-items: center;
+  align-content: start;
+  gap: 30px;
+}
+
+@media only screen and (max-width: 680px) {
+  .Home-Container {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    padding: 0px 20px;
+  }
+}
+
+.Home-AddElement .Home-Burger .Home-Navbar {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+}
+
+.Home-ElementAdder {
+  grid-area: add;
+  order: -1;
+}
+
+.Home-Burger {
+  width: 100%;
+  grid-area: burger;
+}
+
+.Home-Orders {
+  grid-area: orders;
+}

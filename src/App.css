@@ -8,6 +8,12 @@
   transition: 100ms;
 }
 
+#root {
+  display: flex;
+  flex-direction: column;
+}
+
+#root,
 html,
 body {
   width: auto !important;
@@ -15,6 +21,8 @@ body {
   background: #1d1d42;
   /* background-image: linear-gradient(-45deg, #28285a, #1c1c3f); */
   color: white;
+  min-height: 100vh;
+  position: relative;
 }
 
 .App {
@@ -24,60 +32,27 @@ body {
   align-items: center;
 }
 
-.App::before {
-  opacity: 0.6;
-
-  background-image: url('./images/burgerWithBackground.jpg');
-
-  background-size: 100%;
-}
-
 .App-Container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: min-content max-content min-content;
-  grid-template-areas:
-    'burger add'
-    'burger add'
-    'orders orders'
-    'footer footer';
-  justify-items: center;
-  align-content: start;
-  gap: 30px;
-  max-width: 1100px;
-  padding: 0px 30px;
-}
-
-@media only screen and (max-width: 680px) {
-  .App-Container {
-    display: flex;
-    flex-direction: column;
-    justify-items: center;
-    padding: 0px 20px;
-  }
-}
-
-.App-AddElement .App-Burger .App-Navbar {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  justify-items: center;
-}
+  max-width: 1100px;
 
-.App-ElementAdder {
-  grid-area: add;
-  order: -1;
-}
-
-.App-Burger {
-  width: 100%;
-  grid-area: burger;
-}
-
-.App-Orders {
-  grid-area: orders;
+  /* padding: 0px 80px 200px 80px; */
 }
 
 .App-Footer {
-  margin-top: 65px;
+  display: flex;
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+}
+
+.FOTTOFDOTG {
+  position: absolute;
+  background-color: aqua;
+  height: 30px;
+  bottom: 0;
   width: 100%;
 }

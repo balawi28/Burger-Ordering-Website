@@ -1,10 +1,10 @@
 import { React, useLayoutEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import './App.css';
-import Burger from './components/Burger/Burger';
-import ElementAdder from './components/ElementsAdder/ElementAdder';
 import Footer from './components/Footer/Footer';
+import Home from './components/Home/Home';
 import Navbar from './components/Navbar/Navbar';
 import Orders from './components/Orders/Orders';
 import { fetchPrices } from './features/price';
@@ -16,21 +16,17 @@ export default function App() {
   }, [dispatch]);
 
   return (
-    <div className='App'>
-      <Navbar />
-      <div className='App-Container'>
-        <div className='App-Burger'>
-          <Burger />
+    <Router>
+      <div className='App'>
+        <div className='App-Container'>
+          <Navbar />
+          <Routes>
+            <Route path='/' exact element={<Home />} />
+            <Route path='/orders' exact element={<Orders />} />
+          </Routes>
         </div>
-
-        <div className='App-ElementAdder'>
-          <ElementAdder />
-        </div>
-        <div className='App-Orders'>
-          <Orders />
-        </div>
+        <Footer />
       </div>
-      <Footer />
-    </div>
+    </Router>
   );
 }

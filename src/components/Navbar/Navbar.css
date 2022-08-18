@@ -8,11 +8,27 @@
   gap: 30px;
 }
 
-.Navbar h2 {
-  font-weight: 300;
-  font-size: 1.4rem;
+.Navbar-Logo {
+  width: 300px;
+  max-width: 300px;
 }
 
-.Navbar-Logo {
-  max-width: 300px;
+.Navbar-LinksWrapper {
+  font-weight: 300;
+  font-size: 1.4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+}
+
+.NavLink:link {
+  color: #999;
+  font-size: 1.6rem;
+  line-height: 1.6rem;
+  text-decoration: none;
+}
+
+.NavLink:hover {
+  color: #00ab33 !important;
 }
