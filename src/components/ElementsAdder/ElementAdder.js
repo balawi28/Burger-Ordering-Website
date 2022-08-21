@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import BurgerCheese from '../../icons/burger-cheese.svg';
@@ -8,9 +9,9 @@ import BurgerOnion from '../../icons/burger-onion.svg';
 import BurgerTomato from '../../icons/burger-tomato.svg';
 import Element from '../Element/Element';
 import './ElementAdder.css';
+
 export default function ElementAdder() {
   const price = useSelector((state) => state.price.prices);
-  const burgerElements = useSelector((state) => state.burger.elements);
 
   const { cheese, leaf, lettuce, mushroom, onion, tomato } = price;
 
@@ -25,16 +26,12 @@ export default function ElementAdder() {
 
   return (
     <div className='ElementAdder'>
-      {ingredients.map((ingredient) => (
+      {_.map(ingredients, (ingredient) => (
         <Element
           image={ingredient.image}
           name={ingredient.name}
           key={ingredient.name}
           price={ingredient.price}
-          enabled={
-            true &&
-            !burgerElements.find((element) => element.name === ingredient.name)
-          }
         />
       ))}
     </div>

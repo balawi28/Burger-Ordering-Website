@@ -16,6 +16,7 @@ export const orderSlice = createSlice({
           elements: payload.elements,
           status: true,
           price: payload.price,
+          discount: payload.discount,
         },
       ];
     },

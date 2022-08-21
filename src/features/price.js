@@ -9,7 +9,6 @@ const initialState = {
   error: '',
 };
 
-// Generates pending, fulfilled and rejected action types
 export const fetchPrices = createAsyncThunk('price/fetchPrices', async () => {
   return (
     axios

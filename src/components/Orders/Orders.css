@@ -31,10 +31,6 @@ td {
   cursor: pointer;
 }
 
-.Orders tbody tr td {
-  height: 50px;
-}
-
 .Orders tbody :last-child :first-child {
   border-bottom-left-radius: 15px;
 }

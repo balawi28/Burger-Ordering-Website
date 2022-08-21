@@ -14,9 +14,9 @@ export default function Footer() {
         />
         <FooterElement
           title='Our Location'
-          data={['Al-Masyon, Ramallah, Palestine', 'PO Box 23253 ']}
+          data={['Al-Masyon, Ramallah', 'PO Box 23253 ']}
         />
-        <FooterElement title='About Us' data={['Modern burger restaurant']} />
+        <FooterElement title='About Us' data={['Burger Restaurant']} />
       </div>
     </div>
   );

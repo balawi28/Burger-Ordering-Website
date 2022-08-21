@@ -32,3 +32,11 @@
 .NavLink:hover {
   color: #00ab33 !important;
 }
+
+@media only screen and (max-width: 660px) {
+  .Navbar {
+    align-items: flex-start;
+    flex-direction: column;
+    margin-bottom: 90px;
+  }
+}

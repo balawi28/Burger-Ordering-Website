@@ -1,25 +1,25 @@
-.Total {
+.OrderTotal {
   display: flex;
   flex-direction: column;
   min-width: 100%;
   gap: 20px;
 }
-.Total-Line {
+.OrderTotal-Line {
   min-width: 100%;
   border-top: 1px solid #999;
-  /*border-image: linear-gradient(90deg, #0000, rgb(255, 255, 255), #0000) 40*/
+  border-image: linear-gradient(90deg, rgb(255, 255, 255), #0000) 40;
 }
 
-.Total-Container {
+.OrderTotal-Container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 40px;
 }
 
-.Total-Sum {
+.OrderTotal-Sum,
+.OrderTotal-Percentage {
   font-size: 1.4rem;
   font-weight: 600;
   white-space: pre;
-  /* width: 100%; */
 }

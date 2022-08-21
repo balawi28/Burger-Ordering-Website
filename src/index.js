@@ -4,6 +4,7 @@ import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
 import App from './App';
 import burgerReducer from './features/burger';
+import discountReducer from './features/discount';
 import orderReducer from './features/order';
 import priceReducer from './features/price';
 
@@ -12,6 +13,7 @@ const store = configureStore({
     price: priceReducer,
     burger: burgerReducer,
     order: orderReducer,
+    discount: discountReducer,
   },
 });
 

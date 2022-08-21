@@ -1,8 +1,23 @@
 import { createSlice } from '@reduxjs/toolkit';
+import _ from 'lodash';
+import BurgerCheese from '../icons/burger-cheese.svg';
+import BurgerLeaf from '../icons/burger-leaf.svg';
+import BurgerLettuce from '../icons/burger-lettuce.svg';
+import BurgerMushroom from '../icons/burger-mushroom.svg';
+import BurgerOnion from '../icons/burger-onion.svg';
+import BurgerTomato from '../icons/burger-tomato.svg';
 
 const initialState = {
   elements: [],
   orderTotal: 12,
+  ingredients: {
+    cheese: { image: BurgerCheese, name: 'Cheese' },
+    leaf: { image: BurgerLeaf, name: 'Leaf' },
+    lettuce: { image: BurgerLettuce, name: 'Lettuce' },
+    mushroom: { image: BurgerMushroom, name: 'Mushroom' },
+    onion: { image: BurgerOnion, name: 'Onion' },
+    tomato: { image: BurgerTomato, name: 'Tomato' },
+  },
 };
 
 export const burgerSlice = createSlice({
@@ -13,11 +28,10 @@ export const burgerSlice = createSlice({
       state.elements = [
         ...state.elements,
         {
-          text: payload.text,
+          discreption: payload.discreption,
           image: payload.image,
           removable: payload.removable,
           name: payload.name,
-          key: payload.key,
           price: payload.price,
         },
       ];
@@ -29,11 +43,28 @@ export const burgerSlice = createSlice({
       state.orderTotal -= state.elements.find(
         (element) => element.name === payload
       ).price;
-      state.elements = state.elements.filter(
-        (element) => element.name !== payload
+
+      state.elements = _.without(
+        state.elements,
+        _.find(state.elements, { name: payload })
       );
+    },
+
+    setElements: (state, { payload }) => {
+      state.orderTotal = initialState.orderTotal;
+      state.elements = [];
+
+      state.elements.forEach((element) => {
+        state.orderTotal += element.price;
+        state.ingredients.forEach((ingredient) => {
+          if (element.name === ingredient.name) {
+            element.image = ingredient.image;
+            element.discreption = element.name + ': ' + element.price + '₪';
+          }
+        });
+      });
     },
   },
 });
-export const { addElement, removeElement } = burgerSlice.actions;
+export const { addElement, removeElement, setElements } = burgerSlice.actions;
 export default burgerSlice.reducer;

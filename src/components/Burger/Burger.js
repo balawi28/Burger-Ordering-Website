@@ -1,45 +1,47 @@
+import _ from 'lodash';
 import { useSelector } from 'react-redux';
 import BurgerBreadBottom from '../../icons/burger-bread-bottom.svg';
 import BurgerBreadTop from '../../icons/burger-bread-top.svg';
 import BurgerMeatBeef from '../../icons/burger-meat-beef.svg';
 import BurgerElement from '../BurgerElement/BurgerElement';
-import Total from '../Total/Total';
+import OrderTotal from '../OrderTotal/OrderTotal';
 import './Burger.css';
 
 export default function Burger() {
   const burger = useSelector((state) => state.burger);
+  let key = 0;
 
   return (
     <div className='Burger'>
-      <div className='Burger-Total'>
-        <Total />
+      <div className='Burger-OrderTotal'>
+        <OrderTotal />
       </div>
 
       <BurgerElement
         image={BurgerBreadBottom}
-        text='Bread: Base Price'
+        discreption='Bread: Base Price'
         removable={false}
       />
 
-      {burger.elements.map((element) => (
+      {_.map(burger.elements, (element) => (
         <BurgerElement
-          text={element.text}
+          discreption={element.discreption}
           image={element.image}
           removable={element.removable}
           name={element.name}
-          key={element.key}
+          key={key++}
         />
       ))}
 
       <BurgerElement
         image={BurgerMeatBeef}
-        text='Beef: Base Price'
+        discreption='Beef: Base Price'
         removable={false}
       />
 
       <BurgerElement
         image={BurgerBreadTop}
-        text='Bread: Base Price'
+        discreption='Bread: Base Price'
         removable={false}
       />
     </div>

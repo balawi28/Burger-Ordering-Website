@@ -5,13 +5,13 @@
   grid-template-rows: min-content;
   align-items: center;
   min-height: 100%;
+  -webkit-user-drag: none;
 }
 
 .BurgerElement-Image {
   grid-area: image;
   user-select: none;
-  -webkit-user-drag: none;
-  width: 100px;
+  width: 90px;
 }
 
 .BurgerElement-Text {
@@ -23,7 +23,6 @@
 
 .BurgerElement-Remove {
   user-select: none;
-  -webkit-user-drag: none;
   margin-right: 13px;
   margin-top: 7px;
   min-width: 27px;

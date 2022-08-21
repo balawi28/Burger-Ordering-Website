@@ -4,11 +4,10 @@
   padding: 20px 20px 20px 25px;
   border-radius: 15px;
   background-color: #141432;
-  min-width: 100%;
   color: white;
 }
 
-.Burger-Total {
+.Burger-OrderTotal {
   padding-top: 19px;
 }
 /*

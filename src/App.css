@@ -9,8 +9,7 @@
 }
 
 #root {
-  display: flex;
-  flex-direction: column;
+  padding-bottom: 210px;
 }
 
 #root,
@@ -25,11 +24,33 @@ body {
   position: relative;
 }
 
+/* width */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #3b37ae;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(87, 85, 255);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
 .App {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 0px 40px;
+  width: 100%;
 }
 
 .App-Container {
@@ -38,8 +59,7 @@ body {
   justify-content: center;
   align-items: center;
   max-width: 1100px;
-
-  /* padding: 0px 80px 200px 80px; */
+  width: 100%;
 }
 
 .App-Footer {
@@ -47,12 +67,4 @@ body {
   width: 100%;
   position: absolute;
   bottom: 0px;
-}
-
-.FOTTOFDOTG {
-  position: absolute;
-  background-color: aqua;
-  height: 30px;
-  bottom: 0;
-  width: 100%;
 }
