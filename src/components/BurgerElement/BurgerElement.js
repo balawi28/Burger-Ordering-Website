@@ -2,14 +2,14 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { removeElement } from '../../features/burger';
 import { removeDiscount } from '../../features/discount';
-import { ReactComponent as RemoveIcon } from '../../icons/remove.svg';
+import { ReactComponent as IconRemove } from '../../icons/remove.svg';
 import './BurgerElement.css';
 export default function BurgerElement({ image, discreption, removable, name }) {
   const dispatch = useDispatch();
 
   return (
     <div className='BurgerElement'>
-      <RemoveIcon
+      <IconRemove
         className='BurgerElement-Remove'
         onClick={
           removable

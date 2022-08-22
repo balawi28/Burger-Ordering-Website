@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { addElement } from '../../features/burger';
+import { removeDiscount } from '../../features/discount';
 import './Element.css';
 export default function Element({ image, name, price }) {
   const dispatch = useDispatch();
@@ -17,6 +18,8 @@ export default function Element({ image, name, price }) {
         name: name,
       })
     );
+
+    dispatch(removeDiscount());
   }
 
   return (

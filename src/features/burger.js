@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import axios from 'axios';
 import _ from 'lodash';
 import BurgerCheese from '../icons/burger-cheese.svg';
 import BurgerLeaf from '../icons/burger-leaf.svg';
@@ -6,10 +7,15 @@ import BurgerLettuce from '../icons/burger-lettuce.svg';
 import BurgerMushroom from '../icons/burger-mushroom.svg';
 import BurgerOnion from '../icons/burger-onion.svg';
 import BurgerTomato from '../icons/burger-tomato.svg';
+import URL from '../urls.json';
+const createAsyncThunk = require('@reduxjs/toolkit').createAsyncThunk;
 
 const initialState = {
+  loading: false,
+  error: '',
   elements: [],
   orderTotal: 12,
+  prices: [],
   ingredients: {
     cheese: { image: BurgerCheese, name: 'Cheese' },
     leaf: { image: BurgerLeaf, name: 'Leaf' },
@@ -19,6 +25,15 @@ const initialState = {
     tomato: { image: BurgerTomato, name: 'Tomato' },
   },
 };
+
+export const fetchPrices = createAsyncThunk('burger/fetchPrices', async () => {
+  return (
+    axios
+      .get(URL.prices)
+      // .then((response) => console.log(response.data[0]))
+      .then((response) => response.data.map((price) => price))
+  );
+});
 
 export const burgerSlice = createSlice({
   name: 'burger',
@@ -54,16 +69,37 @@ export const burgerSlice = createSlice({
       state.orderTotal = initialState.orderTotal;
       state.elements = [];
 
-      state.elements.forEach((element) => {
-        state.orderTotal += element.price;
-        state.ingredients.forEach((ingredient) => {
-          if (element.name === ingredient.name) {
-            element.image = ingredient.image;
-            element.discreption = element.name + ': ' + element.price + '₪';
-          }
-        });
+      payload.forEach((element) => {
+        let elementPrice = state.prices[element.toLowerCase()];
+        state.orderTotal += +elementPrice;
+
+        state.elements = [
+          ...state.elements,
+          {
+            discreption: element + ': ' + elementPrice + '₪',
+            image: state.ingredients[element.toLowerCase()].image,
+            removable: true,
+            name: element,
+            price: elementPrice,
+          },
+        ];
       });
     },
+  },
+  extraReducers: (builder) => {
+    builder.addCase(fetchPrices.pending, (state) => {
+      state.loading = true;
+    });
+    builder.addCase(fetchPrices.fulfilled, (state, action) => {
+      state.loading = false;
+      state.prices = action.payload[0];
+      state.error = '';
+    });
+    builder.addCase(fetchPrices.rejected, (state, action) => {
+      state.loading = false;
+      state.prices = [];
+      state.error = action.error.message;
+    });
   },
 });
 export const { addElement, removeElement, setElements } = burgerSlice.actions;

@@ -7,7 +7,7 @@ import Footer from './components/Footer/Footer';
 import Home from './components/Home/Home';
 import Navbar from './components/Navbar/Navbar';
 import Orders from './components/Orders/Orders';
-import { fetchPrices } from './features/price';
+import { fetchPrices } from './features/burger';
 
 export default function App() {
   const dispatch = useDispatch();

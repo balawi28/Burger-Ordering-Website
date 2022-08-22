@@ -11,7 +11,7 @@ import Element from '../Element/Element';
 import './ElementAdder.css';
 
 export default function ElementAdder() {
-  const price = useSelector((state) => state.price.prices);
+  const price = useSelector((state) => state.burger.prices);
 
   const { cheese, leaf, lettuce, mushroom, onion, tomato } = price;
 

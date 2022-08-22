@@ -13,14 +13,15 @@ export default function App() {
 
   return (
     <div className='Home'>
-      <div className='Home-Container'>
+      <div className='Home-BurgerAdderContainer'>
         <div className='Home-Burger'>
           <Burger />
         </div>
         <div className='Home-ElementAdder'>
           <ElementAdder />
         </div>
-
+      </div>
+      <div className='Home-Offers '>
         {_.map(getOffers(), (offer) => (
           <Offer {...offer} key={key++} />
         ))}

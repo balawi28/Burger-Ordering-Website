@@ -6,7 +6,7 @@
 
 .FooterElement-Container {
   display: flex;
-  flex-direction: column;
+
   min-width: max-content;
   gap: 5px;
 }
@@ -29,6 +29,6 @@
 .FooterElement-Icon {
   min-height: 17px;
   min-width: 22px;
+  max-height: 17px;
   margin-top: 4px;
-  fill: white;
 }

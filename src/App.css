@@ -8,10 +8,6 @@
   transition: 100ms;
 }
 
-#root {
-  padding-bottom: 210px;
-}
-
 #root,
 html,
 body {
@@ -44,6 +40,12 @@ body {
   background: #555;
 }
 
+@media only screen and (max-width: 660px) {
+  .App {
+    padding-bottom: 400px !important;
+  }
+}
+
 .App {
   display: flex;
   flex-direction: column;
@@ -51,6 +53,7 @@ body {
   align-items: center;
   padding: 0px 40px;
   width: 100%;
+  padding-bottom: 180px;
 }
 
 .App-Container {

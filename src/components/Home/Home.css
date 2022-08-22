@@ -1,9 +1,8 @@
 .Home {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-items: center;
   width: 100%;
-  align-items: center;
+  gap: 40px;
 }
 
 .Home::before {
@@ -12,24 +11,22 @@
   background-size: 100%;
 }
 
-.Home-Container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-areas:
-    'burger add'
-    'burger .';
-  justify-items: center;
-  align-content: start;
-  width: 100%;
-  gap: 30px;
+@media only screen and (max-width: 660px) {
+  .Home {
+    flex-direction: column;
+  }
 }
 
-@media only screen and (max-width: 660px) {
-  .Home-Container {
-    display: flex;
-    flex-direction: column;
-    justify-items: center;
-  }
+.Home-BurgerAdderContainer {
+  display: flex;
+  gap: 30px;
+  flex-direction: column;
+}
+
+.Home-Offers {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
 }
 
 .Home-AddElement .Home-Burger .Home-Navbar {
@@ -48,6 +45,6 @@
   grid-area: burger;
 }
 
-.Home-Orders {
-  grid-area: orders;
+.Home-Offers {
+  grid-area: offer;
 }

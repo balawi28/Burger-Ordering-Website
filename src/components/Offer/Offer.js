@@ -15,7 +15,7 @@ export default function Offer({ image, name, percentage, elements }) {
   return (
     <div className='Offer'>
       <p className='Offer-Mark'>Offer</p>
-      <p className='Offer-Value'>-{percentage + '%'}</p>
+      <p className='Offer-Value'>{percentage + '%'}</p>
       <p className='Offer-Add' onClick={() => handleAdd()}>
         Order now!
       </p>

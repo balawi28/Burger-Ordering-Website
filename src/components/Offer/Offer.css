@@ -1,25 +1,25 @@
 .Offer {
-  width: 100%;
   border-radius: 15px;
   background-color: #141432;
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin-top: 60px;
   position: relative;
   color: white;
   text-align: center;
+  width: 100%;
 }
 
 .Offer img {
   max-height: 190px;
-  margin-top: -70px;
+  max-width: 170px;
 }
 
 .Offer h2 {
   margin-top: -10px;
   margin-bottom: 60px;
-  font-size: 1.7rem;
+  font-size: 1.6rem;
+  padding: 0px 12px;
 }
 
 .Offer-Value {
@@ -40,7 +40,8 @@
   left: 0;
   width: 20%;
   background-color: #e20001;
-  padding: 5px 0px;
+  min-width: 60px;
+  padding: 5px;
   border-radius: 15px 0px;
 }
 
@@ -48,10 +49,14 @@
   position: absolute;
   bottom: 0;
   right: 0;
-  width: 100%;
+  width: 75%;
   font-size: 1.4rem;
   background-color: #3b37ae;
   padding: 5px;
-  border-radius: 0px 0px 15px 15px;
+  border-radius: 0px 0px 15px 0px;
   cursor: pointer;
+}
+
+.Offer-Add:hover {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4) 0 0) !important;
 }
