@@ -36,14 +36,14 @@ function getOffers() {
       image: ImageOffer1,
       name: 'Double Mushroom Burger',
       percentage: 25,
-      elements: ['Mushroom', 'Cheese', 'Lettuce', 'Tomato'],
+      elements: ['Mushroom', 'Cheese', 'Mushroom', 'Tomato'],
     },
 
     2: {
       image: ImageOffer2,
       name: 'Lettuce Burger',
       percentage: 30,
-      elements: ['Mushroom', 'Cheese', 'Lettuce', 'Tomato'],
+      elements: ['Lettuce', 'Cheese', 'Lettuce', 'Tomato', 'Leaf'],
     },
 
     3: {
