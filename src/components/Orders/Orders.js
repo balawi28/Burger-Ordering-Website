@@ -23,12 +23,14 @@ export default function Orders() {
         {orders.length ? (
           _.map(orders, ({ id, elements, discount, status, price }) => (
             <tr key={id}>
-              <td style={{ backgroundColor: status ? '' : '#444' }}>{id}</td>
-              <td style={{ backgroundColor: status ? '' : '#444' }}>
+              <td style={{ backgroundColor: status ? '' : '#fe4141' }}>{id}</td>
+              <td style={{ backgroundColor: status ? '' : '#fe4141' }}>
                 {price + '₪'}
               </td>
-              <td>{discount ? 'Discount Applied' : 'No Discount'}</td>
-              <td style={{ backgroundColor: status ? '' : '#444' }}>
+              <td style={{ backgroundColor: status ? '' : '#fe4141' }}>
+                {discount ? 'Discount Applied' : 'No Discount'}
+              </td>
+              <td style={{ backgroundColor: status ? '' : '#fe4141' }}>
                 {status ? 'In Progress' : 'Canceled'}
               </td>
               <td onClick={() => dispatch(cancelOrder(id))}>
