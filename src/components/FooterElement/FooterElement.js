@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import React from 'react';
 import './FooterElement.css';
 
@@ -8,7 +9,7 @@ export default function FooterElement({ title, data, Icon }) {
         <Icon className='FooterElement-Icon' />
         <div className='FooterElement-TextContainer'>
           <h3 className='FooterElement-Title'>{title.toUpperCase()}</h3>
-          {data.map((string) => (
+          {_.map(data, (string) => (
             <pre key={string}>{string}</pre>
           ))}
         </div>

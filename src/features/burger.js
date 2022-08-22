@@ -27,12 +27,9 @@ const initialState = {
 };
 
 export const fetchPrices = createAsyncThunk('burger/fetchPrices', async () => {
-  return (
-    axios
-      .get(URL.prices)
-      // .then((response) => console.log(response.data[0]))
-      .then((response) => response.data.map((price) => price))
-  );
+  return axios
+    .get(URL.prices)
+    .then((response) => _.map(response.data, (price) => price));
 });
 
 export const burgerSlice = createSlice({
@@ -55,7 +52,8 @@ export const burgerSlice = createSlice({
     },
 
     removeElement: (state, { payload }) => {
-      state.orderTotal -= state.elements.find(
+      state.orderTotal -= _.find(
+        state.elements,
         (element) => element.name === payload
       ).price;
 

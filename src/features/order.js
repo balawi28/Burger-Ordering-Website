@@ -1,4 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
+import _ from 'lodash';
+
 let id = 1;
 const initialState = {
   orders: [],
@@ -22,11 +24,11 @@ export const orderSlice = createSlice({
     },
 
     deleteOrder: (state, { payload }) => {
-      state.orders = state.orders.filter((order) => order.id !== payload);
+      state.orders = _.filter(state.orders, (order) => order.id !== payload);
     },
 
     cancelOrder: (state, { payload }) => {
-      state.orders = state.orders.map((order) => {
+      state.orders = _.map(state.orders, (order) => {
         return order.id === payload ? { ...order, status: false } : order;
       });
     },
